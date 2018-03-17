@@ -14,18 +14,27 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      font-size: 16px;
     }
     ul {
+      text-align: center;
       margin: 0;
       padding: 0;
+      font-size: 1.125em;
     }
     li {
       list-style: none;
       display: inline-block;
     }
+    li + li {
+      margin-left: 1em;
+    }
     @media (max-width: 360px) {
       li {
         display: block;
+      }
+      li + li {
+        margin-left: 0;
       }
     }
   </style>
@@ -33,6 +42,7 @@
     <!-- <li><a href="http://www.jianshu.com/users/75777050f9e8/timeline" rel="nofollow">JianShu</a></li> -->
     <!-- <li><a href="https://www.behance.net/mantou" rel="nofollow">Behance</a></li> -->
     <!-- <li><a href="https://juejin.im/user/586dbccf1b69e60062cc37e5" rel="nofollow">JueJin</a></li> -->
+    <li><a href="https://www.evernote.com/pub/mantou132/mantou132" rel="nofollow">Evernote</a></li>
     <li><a href="https://twitter.com/594mantou" rel="nofollow">Twitter</a></li>
   </ul>
 </body>
