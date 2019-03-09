@@ -1,0 +1,48 @@
+.header-name {
+  margin-bottom: 1rem;
+}
+
+.header-nav {
+  display: none;
+}
+
+.posts li article {
+  display: flex;
+}
+
+.posts li *:not(.permalink) {
+  flex-shrink: 0;
+}
+
+.posts li .post-tags {
+  flex-grow: 1;
+}
+
+.posts li .permalink {
+  margin-left: 1rem;
+}
+
+.pagination .post-next {
+  padding-right: 0;
+}
+
+.pagination .post-prev {
+  padding-left: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .header-name {
+    border-bottom: 0.0625rem solid #ccc;
+  }
+  .website-content {
+    padding: 0 1rem;
+  }
+
+  .posts li article {
+    align-items: start !important;
+  }
+
+  .posts li time {
+    display: none;
+  }
+}
