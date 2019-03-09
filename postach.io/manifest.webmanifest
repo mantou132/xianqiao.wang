@@ -1,0 +1,21 @@
+{
+  "name": "MT Note",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "start_url": "/?utm_source=web_app_manifest",
+  "scope": "/",
+  "display": "standalone",
+  "description": "Some records of life and study",
+  "icons": [
+    {
+      "src": "/postach.io/icon@48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/postach.io/icon@144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
+}
