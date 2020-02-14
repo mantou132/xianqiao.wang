@@ -31,6 +31,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .container-narrow {
+    padding: 0;
+  }
   .header-name {
     border-bottom: 0.0625rem solid #ccc;
   }
