@@ -8,11 +8,13 @@
   "description": "Some records of life and study",
   "icons": [
     {
+      "purpose": "any maskable",
       "src": "/postach.io/icon@48.png",
       "sizes": "48x48",
       "type": "image/png"
     },
     {
+      "purpose": "any maskable",
       "src": "/postach.io/icon@144.png",
       "sizes": "144x144",
       "type": "image/png"
