@@ -1,59 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Xianqiao.Wang</title>
-</head>
-<body>
-  <style>
-    html, body, main {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-size: 16px;
-    }
-    main {
-      flex-grow: 1;
-    }
-    ul {
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      font-size: 1.125em;
-    }
-    li {
-      list-style: none;
-      display: inline-block;
-    }
-    li + li {
-      margin-left: 1em;
-    }
-    footer {
-      opacity: .3;
-      font-size: .75em;
-    }
-    @media (max-width: 375px) {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Xianqiao.Wang</title>
+  </head>
+  <body>
+    <style>
+      html,
+      body,
+      main {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+      }
+      main {
+        flex-grow: 1;
+      }
+      ul {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        font-size: 1.125em;
+      }
       li {
-        display: block;
+        list-style: none;
+        display: inline-block;
       }
       li + li {
-        margin-left: 0;
+        margin-left: 1em;
       }
-    }
-  </style>
-  <main>
-    <ul>
-      <li><a href="https://github.com/mantou132" rel="nofollow">Github</a></li>
-      <li><a href="https://note.xianqiao.wang" rel="nofollow">Evernote</a></li>
-      <li><a href="https://twitter.com/594mantou/likes" rel="nofollow">Twitter</a></li>
-      <li><a href="https://juejin.cn/user/1222312658741159/posts" rel="nofollow">JueJin</a></li>
-      <li><a href="https://www.behance.net/mantou" rel="nofollow">Behance</a></li>
-    </ul>
-  </main>
-</body>
+      footer {
+        opacity: 0.3;
+        font-size: 0.75em;
+      }
+      @media (width <= 375px) {
+        li {
+          display: block;
+        }
+        li + li {
+          margin-left: 0;
+        }
+      }
+    </style>
+    <main>
+      <ul>
+        <li>
+          <a href="https://github.com/mantou132" rel="nofollow">Github</a>
+        </li>
+        <li>
+          <s>
+            <a href="https://note.xianqiao.wang" rel="nofollow"
+              >Evernote</a
+            ></s
+          >/<a
+            href="https://594mantou.notion.site/2a1726a5a00e48b0a1e45d58200647dc"
+            rel="nofollow"
+            >Notion</a
+          >
+        </li>
+        <li>
+          <a href="https://twitter.com/594mantou/likes" rel="nofollow"
+            >Twitter</a
+          >
+        </li>
+        <li>
+          <a href="https://juejin.cn/user/1222312658741159/posts" rel="nofollow"
+            >JueJin</a
+          >
+        </li>
+        <li>
+          <a href="https://www.behance.net/mantou" rel="nofollow">Behance</a>
+        </li>
+      </ul>
+    </main>
+  </body>
 </html>
