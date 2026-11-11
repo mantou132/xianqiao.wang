@@ -22,7 +22,7 @@ export const projects: Project[] = [
     key: 'gem',
     name: 'Gem',
     repo: 'https://github.com/mantou132/gem',
-    site: { label: 'gem.js.org', href: 'https://gem.js.org' },
+    site: { label: 'gemjs.org', href: 'https://gemjs.org' },
   },
   {
     key: 'nesbox',
