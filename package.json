@@ -1,0 +1,19 @@
+{
+  "name": "xianqiao.wang",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "rsbuild dev",
+    "build": "rsbuild build && node scripts/publish.mjs",
+    "start": "gemkit start"
+  },
+  "dependencies": {
+    "@mantou/gem": "^2.3.2",
+    "@mantou/gemkit": "^0.2.1"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "^2.0.0",
+    "@types/node": "^22.13.10",
+    "typescript": "^5.6.2"
+  }
+}
