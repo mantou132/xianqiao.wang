@@ -3,19 +3,13 @@ import { i18n } from '$gemkit/i18n';
 
 const style = css`
   :scope {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.5rem 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--rule);
-    font-family: var(--mono);
-    font-size: 0.7rem;
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
     color: var(--muted);
   }
   a {
-    text-decoration: none;
-    border-bottom: 1px dotted var(--muted);
+    color: inherit;
   }
 `;
 
@@ -24,7 +18,8 @@ const style = css`
 export class AppFooterElement extends GemElement {
   @template()
   #content = () => html`
-    <span>© ${new Date().getFullYear()} Xianqiao Wang</span>
-    <span>${i18n.get('builtWith')} <a href="https://github.com/mantou132/gem">Gem + GemKit</a></span>
+    © ${new Date().getFullYear()} Xianqiao Wang · ${i18n.get('builtWith')}&nbsp;<a href="https://github.com/mantou132/gem"
+      >Gem</a
+    >
   `;
 }

@@ -3,18 +3,7 @@ import { i18n, languages, localizePath } from '$gemkit/i18n';
 
 const style = css`
   :scope {
-    align-self: flex-start;
-  }
-  a {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--muted);
-    text-decoration: none;
-    border-bottom: 1px solid var(--rule);
-  }
-  a:hover {
-    color: var(--accent);
-    border-color: var(--accent);
+    font-size: 0.9rem;
   }
 `;
 
