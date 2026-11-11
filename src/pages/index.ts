@@ -5,15 +5,22 @@ import { email, links, projects } from '../data';
 
 const style = css`
   :scope {
-    display: grid;
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: clamp(2.5rem, 7vw, 7rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 7vw, 6rem);
     max-width: 72rem;
-    grid-template-rows: 1fr auto;
     min-height: 100vh;
     box-sizing: border-box;
     margin: 0 auto;
-    padding: clamp(2rem, 7vw, 6rem) clamp(1.25rem, 5vw, 4rem);
+    padding: clamp(2rem, 7vw, 6rem) clamp(1.25rem, 5vw, 4rem) clamp(1.5rem, 4vw, 2.5rem);
+  }
+  /* Own wrapper so the sticky intro never slides over the footer */
+  .columns {
+    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: start;
+    gap: clamp(2.5rem, 7vw, 7rem);
   }
 
   /* —— Load sequence —— */
@@ -233,9 +240,6 @@ const style = css`
   }
 
   footer {
-    grid-column: 1 / -1;
-    align-self: end;
-    align-content: start;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -252,9 +256,8 @@ const style = css`
   }
 
   @media (max-width: 52rem) {
-    :scope {
+    .columns {
       grid-template-columns: 1fr;
-      grid-template-rows: auto 1fr auto;
     }
     .intro {
       position: static;
@@ -269,6 +272,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
 export default class HomePage extends GemElement {
   @template()
   #content = () => html`
+    <div class="columns">
     <section class="intro">
       <h1 class="rise">Xianqiao <em>Wang</em></h1>
 
@@ -316,6 +320,7 @@ export default class HomePage extends GemElement {
         `,
       )}
     </section>
+    </div>
 
     <footer>
       <span>© ${new Date().getFullYear()} Xianqiao Wang</span>
