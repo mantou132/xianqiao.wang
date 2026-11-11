@@ -1,5 +1,6 @@
 import { adoptedStyle, css, GemElement, html, template } from '@mantou/gem';
 import { page } from '@mantou/gemkit';
+import { i18n, languages, localizePath } from '$gemkit/i18n';
 
 import { email, links, projects } from '../data';
 
@@ -60,6 +61,27 @@ const style = css`
     display: block;
     font-style: italic;
     color: var(--muted);
+  }
+  :lang(zh) h1 {
+    letter-spacing: 0.04em;
+  }
+  :lang(zh) h1 em {
+    margin-top: 0.35em;
+    font-size: 0.42em;
+    letter-spacing: 0;
+  }
+  .lang {
+    align-self: flex-start;
+    margin-bottom: -1rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+  .lang:hover {
+    color: var(--accent);
+    border-color: var(--accent);
   }
   .lede {
     margin: 0;
@@ -267,52 +289,55 @@ const style = css`
 
 const pad = (n: number) => String(n).padStart(2, '0');
 
-@page('Product engineer')
+type Key = Parameters<typeof i18n.get>[0];
+
+@page({ title: () => i18n.get('title') })
 @adoptedStyle(style)
 export default class HomePage extends GemElement {
   @template()
   #content = () => html`
     <div class="columns">
     <section class="intro">
-      <h1 class="rise">Xianqiao <em>Wang</em></h1>
+      ${languages
+        .filter((lang) => lang !== i18n.currentLanguage)
+        .map((lang) => html`<a class="lang rise" href=${localizePath(lang)} hreflang=${lang}>${i18n.get('switchLanguage')}</a>`)}
 
-      <p class="lede rise" style="--i: 2">
-        Product engineer working close to the web platform — browsers, developer tools, and the infrastructure that
-        lets AI agents do real work. I take things from a user's problem to a reliable, shipped product.
-      </p>
+      <h1 class="rise" style="--i: 1">${i18n.get('name')} <em>${i18n.get('nameAlt')}</em></h1>
+
+      <p class="lede rise" style="--i: 2">${i18n.get('lede')}</p>
 
       <div class="work rise" style="--i: 3">
-        <p class="label">Working with me</p>
+        <p class="label">${i18n.get('workLabel')}</p>
         <ul>
-          <li>Open to remote roles in developer tools, web infrastructure and AI products.</li>
-          <li>Async-first. I do my best work in writing: docs, PRs, issues.</li>
-          <li>Based in China (UTC+8), happy to overlap with US hours.</li>
+          <li>${i18n.get('work1')}</li>
+          <li>${i18n.get('work2')}</li>
+          <li>${i18n.get('work3')}</li>
         </ul>
         <a class="mail" href=${`mailto:${email}`}>${email}</a>
       </div>
 
-      <nav class="elsewhere rise" style="--i: 4" aria-label="Elsewhere">
-        <p class="label">Elsewhere</p>
+      <nav class="elsewhere rise" style="--i: 4" aria-label=${i18n.get('elsewhere')}>
+        <p class="label">${i18n.get('elsewhere')}</p>
         <ul>
           ${links.map(({ label, href }) => html`<li><a href=${href} rel="me noopener">${label}</a></li>`)}
         </ul>
       </nav>
     </section>
 
-    <section class="index" aria-label="Selected work">
-      <p class="label rise" style="--i: 2"><span>Selected work</span><span>${pad(projects.length)}</span></p>
+    <section class="index" aria-label=${i18n.get('selectedWork')}>
+      <p class="label rise" style="--i: 2"><span>${i18n.get('selectedWork')}</span><span>${pad(projects.length)}</span></p>
       ${projects.map(
         (p, i) => html`
           <article class="rise" style=${`--i: ${i + 3}`}>
             <span class="num">${pad(i + 1)}</span>
             <div>
               <h2><a href=${p.repo}>${p.name}</a></h2>
-              <p class="summary">${p.summary}</p>
+              <p class="summary">${i18n.get(`${p.key}.summary` as Key)}</p>
               <ul class="facts">
-                ${p.facts.map((f) => html`<li>${f}</li>`)}
+                ${i18n.get(`${p.key}.facts` as Key).split('|').map((f) => html`<li>${f}</li>`)}
               </ul>
               <div class="meta">
-                <span class="stack">${p.stack}</span>
+                <span class="stack">${i18n.get(`${p.key}.stack` as Key)}</span>
                 ${p.site ? html`<a href=${p.site.href}>${p.site.label} ↗</a>` : ''}
               </div>
             </div>
@@ -324,9 +349,7 @@ export default class HomePage extends GemElement {
 
     <footer>
       <span>© ${new Date().getFullYear()} Xianqiao Wang</span>
-      <span>
-        Built with <a href="https://github.com/mantou132/gem">Gem + GemKit</a> · prerendered · no web fonts, no trackers
-      </span>
+      <span>${i18n.get('builtWith')} <a href="https://github.com/mantou132/gem">Gem + GemKit</a></span>
     </footer>
   `;
 }
